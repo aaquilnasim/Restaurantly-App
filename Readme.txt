@@ -11,6 +11,5 @@ Added features:
 After login admin can see three dashboard buttons to manage.
 CRUD operation is performed and with respect to that menu, categories and dishes.
 
-Inorder to run the Restaurant application one hast to create the database and insert the datas in tables in mySQL as well provide link,username and password in application.properties.
+Inorder to run the Restaurant application one has to create the database and insert the datas in tables in mySQL as well provide link,username and password in application.properties.
 
-Also Backend of Enhancement project Product is done using C# and .Net framework where api of get, put,post, delete and getbyid is created. 
