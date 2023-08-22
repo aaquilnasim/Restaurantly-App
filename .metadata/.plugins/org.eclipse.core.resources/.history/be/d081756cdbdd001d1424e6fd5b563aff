@@ -1,0 +1,49 @@
+package com.restaurant.service;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
+import com.restaurant.model.Dish;
+
+public class DishService implements IDishService{
+
+	@Override
+	public ArrayList<Dish> getAllDishes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Dish> findById(int id) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public String addDish(Dish m) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updateDish(Dish m, int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Dish> deleteDish(int id) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public Optional<Dish> searchByPrefer(String preference) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	
+	
+
+}

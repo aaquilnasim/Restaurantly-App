@@ -1,0 +1,22 @@
+package com.restaurant.service;
+
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.restaurant.model.Menu;
+import com.restaurant.repository.MenuRepository;
+
+@Service
+public class MenuService implements IMenuService{
+	
+	@Autowired
+	MenuRepository menurepository;
+
+	public ArrayList<Menu> getAllMenu() {
+		// TODO Auto-generated method stub
+		return menurepository.getAllMenu();
+	}
+
+}

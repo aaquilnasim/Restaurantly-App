@@ -1,0 +1,58 @@
+package com.restaurant.service;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.restaurant.model.Dish;
+import com.restaurant.repository.DishRepository;
+
+@Service
+public class DishService implements IDishService{
+	
+	@Autowired
+	DishRepository dishrepository;
+
+	@Override
+	public ArrayList<Dish> getAllDishes() {
+		// TODO Auto-generated method stub
+		return dishrepository.getAllDishes();
+	}
+
+	@Override
+	public Optional<Dish> findById(int id) {
+		// TODO Auto-generated method stub
+		return dishrepository.findById(id);
+	}
+
+	@Override
+	public String addDish(Dish m) {
+		dishrepository.getAllDishes();
+		// TODO Auto-generated method stub
+		return "New Dishes Added";
+	}
+
+	@Override
+	public String updateDish(Dish m, int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Dish> deleteDish(int id) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	@Override
+	public Optional<Dish> searchByPrefer(String preference) {
+		// TODO Auto-generated method stub
+		return Optional.empty();
+	}
+
+	
+	
+
+}

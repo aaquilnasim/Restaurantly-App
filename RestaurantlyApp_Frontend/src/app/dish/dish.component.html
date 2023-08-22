@@ -1,0 +1,35 @@
+<br>
+<br>
+<h2 style="margin-top: 20px; margin-left: 35%; margin-bottom:20px; ">DISH DASHBOARD</h2>
+<button type="button" class="btn btn-primary" style="margin-top: 20px; margin-left: 40%; margin-bottom:20px; " [routerLink]="['/newdish']">Add New Dish</button>
+
+<div>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr class="table-primary">
+          <th>DISH ID</th>
+          <th>DISH NAME</th>
+          <th>DESCRIPTION</th>
+          <th>PRICE</th>
+          <th>IMAGE</th>
+          <th>NATURE</th>
+          <th>ACTIONS</th>
+        </tr>
+      </thead>
+    <tbody>
+        <tr *ngFor='let d of dish'>
+            <td>{{d.dishID}}</td>
+            <td>{{d.dishName}}</td>
+            <td>{{d.dishDescription}}</td>
+            <td>{{d.dishPrice}}</td>
+            <td><img src="{{d.dishImage}}" style="height:80px; width: 80px; border-radius: 50%;"/></td>
+            <td>{{d.nature}}</td>
+            <td>
+                <button type="button" class="btn btn-primary"[routerLink]="['/editdish',d.dishID]" style="margin-right: 10px;">Edit</button>
+                
+                <button type="button" class="btn btn-danger" (click)="delete(d.dishID)" >Delete</button>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+</div>

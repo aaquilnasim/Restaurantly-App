@@ -1,0 +1,38 @@
+
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+    <link rel="stylesheet" href="navbar.component.css">
+</head>
+<body>
+    <header>
+        <input type ="checkbox" name ="" id ="chk1">
+        <div class="logo" href="/home">
+            
+            <h1>RESTAURANTLY</h1></div>
+            <ul>
+                <li><a routerLink="/home" class="nav-link active" aria-current="page">Home</a></li>
+                <li><a routerLink="/about" class="nav-link active" aria-current="page">About</a></li>
+                <li><a routerLink="/gallery" class="nav-link active" aria-current="page">Gallery</a></li>
+                <li><a routerLink="/contact" class="nav-link active" aria-current="page">Contact</a></li>
+                <li>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                      
+                </li>
+            </ul>
+            <button routerLink="/admin" class="nav-link active" aria-current="page" type="button" class="btn btn-outline-light" style="margin-right: 30px; width: 10vw; height: 4vh;">Admin</button>
+            <div class="menu">
+                <label for="chk1">
+                    <i class="fa fa-bars"></i>
+                </label>
+            </div>
+    </header>
+</body>
+</html>

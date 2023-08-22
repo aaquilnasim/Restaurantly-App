@@ -1,0 +1,30 @@
+<br>
+<br>
+<h2 style="margin-top: 20px; margin-left: 35%; margin-bottom:20px; ">OUR SERVINGS</h2>
+<div class="input_field">
+    <input type="text" placeholder="Search">
+    </div>
+    <br>
+    <a class="btn btn-primary" [routerLink]="['/menucommon']" style="margin-top: 20px; 
+    margin-left: 20%; margin-bottom:20px;">Search by Menu</a>
+    <a class="btn btn-primary" [routerLink]="['/categorycommon']" style="margin-top: 20px; 
+    margin-left: 20px; margin-bottom:20px;">Search by Category</a>
+    <a class="btn btn-primary" [routerLink]="['/dishcommon']" style="margin-top: 20px; 
+    margin-left: 20px; margin-bottom:20px;">Search by Dishes</a>
+    <div class="container">
+        <div class="row">
+        <div class="col-md-6" *ngFor="let com of common" style="padding: 5px;">
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{com.dishImage}}" style="height: 18rem; width: 18rem;" alt="Card image cap">
+            <div class="card-body">
+                <h3>{{com.dishName}}</h3>
+                <p>Category: {{com.categoryName}}</p>
+                <p>Menu: {{com.menuName}}</p>
+                <span>Price: ₹{{com.dishPrice}}</span>
+                <p>Nature: {{com.dishNature}}</p>
+                <p>Description: {{com.dishDescription}}</p>
+            </div>
+            </div>
+       </div>
+     </div>
+    </div>

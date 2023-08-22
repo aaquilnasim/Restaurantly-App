@@ -1,0 +1,45 @@
+package com.restaurant.repository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.jdbc.core.JdbcTemplate;
+import com.restaurant.model.Category;
+
+@Repository
+public class CategoryRepository {
+	@Autowired
+	private JdbcTemplate jdbctemplate;
+
+	private org.springframework.jdbc.core.RowMapper<Category> rowMapper = (ResultSet rs, int rowNum)->{
+		Category category = new Category();
+		category.set_categoryID(rs.getInt(1));
+		category.set_categoryName(rs.getString(2));
+		category.set_categoryDescription(rs.getString(3));
+		category.set_categoryImage(rs.getString(4));
+		return category;
+	    };
+
+	    public List<Category> getAllCategory()
+	    {
+	        return jdbcTemplate.query("select * from category" , rowMapper);
+	    }
+
+	    public Optional<Category> findbyId(int id) {
+	        String sql="select * from category where categoryID='"+id+"' ";
+	        return jdbcTemplate.query(sql, rowMapper)
+	                .stream()
+	                .findFirst();
+	    }
+
+	    public int savecategory(Category category) {
+	        System.out.println(category.toString());
+	        String query="insert into category values( '"+category.get_categoryID()+"','"+category.get_categoryName()+"','"+category.get_categoryDescription()+"','"+category.get_categoryImage()+"')";
+	        return jdbcTemplate.update(query);
+	    }
+
+	    public int updatecategory(Category category, int id) {
+	        // TODO Auto-generated method stub
+	        return jdbcTemplate.update("update Category set CategoryName='" +category.get_categoryName() + "',CategoryDescription='"+category.get_categoryDescription()+ "',CategoryImage='"+category.get_categoryImage()+"'where CategoryID='"+id+"';");
+
+	    }
+}

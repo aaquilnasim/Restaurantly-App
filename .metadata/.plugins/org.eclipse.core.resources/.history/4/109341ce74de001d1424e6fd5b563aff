@@ -1,0 +1,59 @@
+package com.restaurant.repository;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.restaurant.model.Dish;
+import com.restaurant.model.Menu;
+
+@Repository
+public class DishRepository {
+	@Autowired
+	private JdbcTemplate jdbctemplate;
+	
+	private org.springframework.jdbc.core.RowMapper<Dish> rowMapper= (ResultSet rs, int rowNum)->{
+		Dish dobj=new Dish();
+		dobj.setDishID(rs.getInt(1));
+		dobj.setDishName(rs.getString(2));
+		dobj.setDishDescription(rs.getString(3));
+		dobj.setDishPrice(rs.getDouble(4));
+		dobj.setDishImage(rs.getString(5));
+		dobj.setNature(rs.getString(6));
+		
+		return dobj;
+		};
+		
+		public ArrayList<Dish> getAllDishes(){
+			String sql="select * from dish";
+			return (ArrayList<Dish>) jdbctemplate.query(sql, rowMapper);
+		}
+	
+		public void findById(int id){
+			String sql="select * from dish where dishID='"+id+"' ";
+			jdbctemplate.query(sql, rowMapper)
+					.stream()
+					.findFirst();
+		}
+		
+		public void addMenu(Dish d) {
+			String query="insert into dish values( '"+d.getDishID()+"','"+d.getDishName()+"','"+d.getDishDescription()+"','"+d.getDishPrice()+"','"+d.getDishImage()+"', '"+d.getNature()+"')";
+			jdbctemplate.update(query);
+		}
+		
+		public int updateDish(Dish d,int id) {
+			return jdbctemplate.update("update Dish set dishName= '"+ d.getDishName()+ "', dishDescription= '"+ d.getDishDescription()+"', dishPrice='"+d.getDishPrice()+"', dishImage= '"+d.getDishImage()+"', Nature='"+d.getNature()+"' where DishID = '"+id+"';");
+		}
+		
+		public Optional<Dish> deleteDish(int id) {
+			Optional<Menu> deleteDish=findById(id);
+			String sql="delete from Dish where DishID='"+id+"' ";
+			jdbctemplate.execute(sql);
+			return deleteDish;
+		}
+
+}

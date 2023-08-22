@@ -1,0 +1,24 @@
+
+<div class="container">
+    <legend>New Menu</legend>
+    <form >
+        <div class="mb-3">
+            <label for="txtName" class="form-label text-left">Menu ID</label>
+            <input type="text" name="Fid" [(ngModel)] = "menuForm.menuID" class="form-control" id="txtId" />
+        </div>
+      <div class="mb-3">
+        <label for="txtName" class="form-label">Name</label>
+        <input type="text" name="Fname" [(ngModel)] = "menuForm.menuName" class="form-control" id="txtName" />
+      </div>
+      <div class="mb-3">
+        <label for="txtName" class="form-label">Description</label>
+        <input type="text" name="Src" [(ngModel)] = "menuForm.menuDescription" class="form-control" id="txtName" />
+      </div>
+      <div class="mb-3">
+        <label for="txtName" class="form-label">Image</label>
+        <input type="text" name="Dest" [(ngModel)] = "menuForm.menuImage" class="form-control" id="txtName" />
+      </div>
+      
+      <button type="button" (click)="create()" class="btn btn-primary">Submit</button>
+    </form>
+  </div>

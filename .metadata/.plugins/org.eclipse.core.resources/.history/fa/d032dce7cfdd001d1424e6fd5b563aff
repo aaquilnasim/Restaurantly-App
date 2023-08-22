@@ -1,0 +1,44 @@
+package com.restaurant.repository;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.restaurant.model.Menu;
+
+@Repository
+public class MenuRepository {
+	
+	@Autowired
+	private JdbcTemplate jdbctemplate;
+	
+	private org.springframework.jdbc.core.RowMapper<Menu> rowMapper= (ResultSet rs, int rowNum)->{
+		Menu mobj=new Menu();
+		mobj.setMenuID(rs.getInt(1));
+		mobj.setMenuName(rs.getString(2));
+		mobj.setMenuDescription(rs.getString(3));
+		mobj.setMenuImage(rs.getString(4));
+		
+		return mobj;
+		};
+		
+		public ArrayList<Menu> getAllMenu(){
+			String sql="select * from Menu";
+			return (ArrayList<Menu>) jdbctemplate.query(sql, rowMapper);
+		}
+	
+		public Optional<Menu> findById(int id){
+			String sql="select * from Menu where id='"+id+"'"; 	
+			return jdbctemplate.query(sql, rowMapper).stream().findFirst();	
+		}
+		
+		
+		
+	
+	
+
+}

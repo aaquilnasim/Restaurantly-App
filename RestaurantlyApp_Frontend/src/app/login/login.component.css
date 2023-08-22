@@ -1,0 +1,18 @@
+.img-holder {position: relative;}
+.img-holder .link {
+    position: absolute;
+    bottom: 65%; 
+    left: 16%;
+}
+
+.link2 {
+    position: absolute;
+    bottom: 35%;
+    left: 16%;
+} 
+
+.img-holder3 .link3 {
+    position: absolute;
+    bottom: 25%; 
+    left: 16%;
+} 

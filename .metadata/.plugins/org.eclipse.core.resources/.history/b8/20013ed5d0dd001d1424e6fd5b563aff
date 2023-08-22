@@ -1,0 +1,49 @@
+package com.restaurant.controller;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.restaurant.model.Menu;
+import com.restaurant.service.MenuService;
+
+
+@CrossOrigin(origins="http://localhost:4200")
+@RequestMapping("/api")
+@RestController
+public class MenuController {
+	
+	@Autowired
+	MenuService menuservice;
+	
+	@GetMapping("/menuitems")
+	ArrayList<Menu> getAllMenu(){
+		return menuservice.getAllMenu();
+	}
+	
+	@GetMapping("/menuitems/{id}")
+	Optional<Menu>findById(int id){
+		return menuservice.findById(id);
+	}
+	
+	@PostMapping("/menuitem")
+	Menu addMenu(@RequestBody Menu m) {
+		menuservice.addMenu(m);
+		return m;
+	}
+	
+	@PutMapping("/menuitems/{id}")
+	String updateMenu(Menu m,int id) {
+		menuservice.updateMenu(m, id);
+		return "Menu Updated !!";
+	}
+
+}
