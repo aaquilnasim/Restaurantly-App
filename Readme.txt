@@ -1,4 +1,4 @@
-This is Md Aaquil Nasim of Nalanda batch 2.1 form Johnosn Controls Inc.
+
 I have used Java and spring framework for the backend part of Restaurant application
 and used Angular in frontend.
 Added features:
